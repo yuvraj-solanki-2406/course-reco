@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
+import nltk
 
 
 class CourseRecommendation():
@@ -52,6 +53,7 @@ class ContentbasedRecommendation():
         self.courses = pd.read_csv("./static/udemy_courses.csv")
         # initializing PorterStemmer and stopwords
         self.stem = PorterStemmer()
+        nltk.download('stopwords')
         self.stopword = stopwords.words('english')
         
         # merging two columns

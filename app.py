@@ -7,13 +7,20 @@ app = Flask(__name__)
 course_reco = CourseRecommendation()
 content_based_reco = ContentbasedRecommendation()
 
-# 
+# home page
 @app.route("/", methods=['GET'])
 def home_page():
     popular_course = course_reco.popular_course_fun(num_return=5)
-    return render_template("index.html", popular_course=popular_course)
+    return render_template("popular.html", popular_course=popular_course)
+
+# popular courses
+@app.route("/popular", methods=['GET'])
+def popular_page():
+    popular_course = course_reco.popular_course_fun(num_return=5)
+    return render_template("popular.html", popular_course=popular_course)
 
 
+# course detail page
 @app.route("/courses/<id>", methods=['GET'])
 def get_course_details(id):
     course_detail = course_reco.find_course_detail(id)

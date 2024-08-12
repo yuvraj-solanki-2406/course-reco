@@ -11,7 +11,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the build dependencies and other necessary packages
-RUN apk add --no-cache build-base
+# RUN apk add --no-cache build-base
 
 # Install Python dependencies
 RUN pip install --upgrade pip

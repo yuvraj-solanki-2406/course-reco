@@ -9,6 +9,7 @@ from nltk.corpus import stopwords
 import nltk
 
 
+# popular based recommendation
 class CourseRecommendation():
     def __init__(self) -> None:
         courses = pd.read_csv("./static/udemy_courses.csv")
@@ -23,6 +24,10 @@ class CourseRecommendation():
         self.popular_course['image'] = self.popular_course['url'].apply(self.scrap_image)
         
         return self.popular_course.head(num_return)
+    
+    
+    def all_courses(self):
+        return self.all_courses 
     
     
     # find the details of the course
@@ -103,4 +108,4 @@ class ContentbasedRecommendation():
                 output = first_image.get("src")
                 return output
         return "No Image Found"
-    
+

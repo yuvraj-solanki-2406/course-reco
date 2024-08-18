@@ -59,6 +59,7 @@ class ContentbasedRecommendation():
         # initializing PorterStemmer and stopwords
         self.stem = PorterStemmer()
         nltk.download('stopwords')
+        nltk.download('wordnet')
         self.stopword = stopwords.words('english')
         
         # merging two columns

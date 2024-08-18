@@ -15,6 +15,7 @@ class CourseRecommendation():
         courses = pd.read_csv("./static/udemy_courses.csv")
         self.popular_course = courses[(courses['num_subscribers']>12000) & (courses['num_reviews']>5000)]
         self.all_courses = courses
+        nltk.download('wordnet')
     
     def popular_course_fun(self, num_return):
         self.popular_course = self.popular_course.sort_values(by='num_subscribers', ascending=False, ignore_index=True).head(5)
